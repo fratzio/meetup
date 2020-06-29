@@ -17,7 +17,7 @@ class Event extends Component {
           <div className="localTime">{this.state.event.local_time}</div>
           <div className="localDate">{this.state.event.local_date}</div>
           <div className="eventName">{this.state.event.name}</div>
-          <div className="groupName"></div>
+          <div className="groupName">{this.state.event.group.name}</div>
           <div className="eventAttending">
             {this.state.event.yes_rsvp_count}
           </div>
