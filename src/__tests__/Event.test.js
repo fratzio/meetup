@@ -61,53 +61,51 @@ describe('<Event /> component', () => {
 
   test('Test mock event data as state', () => {
     EventWrapper.setState({
-      event: [
-        {
-          created: 1593066093000,
-          duration: 7200000,
-          id: '271513594',
-          name:
-            'Film industry talents wanted! Event speakers wanted! Guest producers wanted!',
-          date_in_series_pattern: false,
-          status: 'upcoming',
-          time: 1593572400000,
-          local_date: '2020-06-30',
-          local_time: '20:00',
-          updated: 1593066093000,
-          utc_offset: -25200000,
-          waitlist_count: 0,
-          yes_rsvp_count: 3,
-          venue: {
-            id: 26906060,
-            name: 'Online event',
-            repinned: false,
-            country: '',
-            localized_country_name: '',
-          },
-          is_online_event: true,
-          group: {
-            created: 1037993452000,
-            name: 'Vancouver Independent Film Industry Network',
-            id: 61320,
-            join_mode: 'open',
-            lat: 49.279998779296875,
-            lon: -123.12000274658203,
-            urlname: 'VancouverFilm',
-            who: 'Independent Film Networkers',
-            localized_location: 'Vancouver, BC',
-            state: 'BC',
-            country: 'ca',
-            region: 'en_US',
-            timezone: 'Canada/Pacific',
-          },
-          link: 'https://www.meetup.com/VancouverFilm/events/271513594/',
-          description:
-            '<p>Film industry talents wanted! Event speakers wanted!<br/>Guest producers wanted!</p> <p>Please sign up here to see how we can work together:<br/><a href="https://tinyurl.com/yct48y55" class="linkified">https://tinyurl.com/yct48y55</a></p> <p>============================<br/>For more details, join us every Tuesday<br/>8 pm – 10 pm<br/>Pacific Standard Time<br/>via<br/>same zoom link:<br/><a href="https://us02web.zoom.us/j/83040148309" class="linkified">https://us02web.zoom.us/j/83040148309</a><br/>============================<br/>For our international members, please check the time<br/>in your time zone:<br/><a href="https://www.timeanddate.com/time/map/" class="linkified">https://www.timeanddate.com/time/map/</a></p> <p>============================</p> <p>Contact us:<br/><a href="http://showtalenttalentshow.com" class="linkified">http://showtalenttalentshow.com</a><br/>ShowTalentTalentShow@gmail.com<br/>Team@ShowTalent-TalentShow.com<br/>Text only:[masked]</p> <p>========================</p> ',
-          visibility: 'public',
-          member_pay_fee: false,
+      event: {
+        created: 1593066093000,
+        duration: 7200000,
+        id: '271513594',
+        name:
+          'Film industry talents wanted! Event speakers wanted! Guest producers wanted!',
+        date_in_series_pattern: false,
+        status: 'upcoming',
+        time: 1593572400000,
+        local_date: '2020-06-30',
+        local_time: '20:00',
+        updated: 1593066093000,
+        utc_offset: -25200000,
+        waitlist_count: 0,
+        yes_rsvp_count: 3,
+        venue: {
+          id: 26906060,
+          name: 'Online event',
+          repinned: false,
+          country: '',
+          localized_country_name: '',
         },
-      ],
+        is_online_event: true,
+        group: {
+          created: 1037993452000,
+          name: 'Vancouver Independent Film Industry Network',
+          id: 61320,
+          join_mode: 'open',
+          lat: 49.279998779296875,
+          lon: -123.12000274658203,
+          urlname: 'VancouverFilm',
+          who: 'Independent Film Networkers',
+          localized_location: 'Vancouver, BC',
+          state: 'BC',
+          country: 'ca',
+          region: 'en_US',
+          timezone: 'Canada/Pacific',
+        },
+        link: 'https://www.meetup.com/VancouverFilm/events/271513594/',
+        description:
+          '<p>Film industry talents wanted! Event speakers wanted!<br/>Guest producers wanted!</p> <p>Please sign up here to see how we can work together:<br/><a href="https://tinyurl.com/yct48y55" class="linkified">https://tinyurl.com/yct48y55</a></p> <p>============================<br/>For more details, join us every Tuesday<br/>8 pm – 10 pm<br/>Pacific Standard Time<br/>via<br/>same zoom link:<br/><a href="https://us02web.zoom.us/j/83040148309" class="linkified">https://us02web.zoom.us/j/83040148309</a><br/>============================<br/>For our international members, please check the time<br/>in your time zone:<br/><a href="https://www.timeanddate.com/time/map/" class="linkified">https://www.timeanddate.com/time/map/</a></p> <p>============================</p> <p>Contact us:<br/><a href="http://showtalenttalentshow.com" class="linkified">http://showtalenttalentshow.com</a><br/>ShowTalentTalentShow@gmail.com<br/>Team@ShowTalent-TalentShow.com<br/>Text only:[masked]</p> <p>========================</p> ',
+        visibility: 'public',
+        member_pay_fee: false,
+      },
     });
-    expect(EventWrapper.find('.eventAttending').text()).toBe(3);
+    expect(EventWrapper.find('.eventAttending').text()).toBe('3');
   });
 });
