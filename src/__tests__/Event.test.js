@@ -106,6 +106,6 @@ describe('<Event /> component', () => {
         member_pay_fee: false,
       },
     });
-    expect(EventWrapper.find('.eventAttending').text()).toBe('3');
+    expect(EventWrapper.find('.groupName').text()).toBe('3');
   });
 });

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Event extends Component {
   state = {
     showDetails: false,
-    event: {},
   };
 
   eventShowDetails = () => {
@@ -11,16 +10,15 @@ class Event extends Component {
   };
 
   render() {
+    const { event } = this.props.event;
     return (
       <div className="Event">
         <div className="eventSummary">
-          <div className="localTime">{this.state.event.local_time}</div>
-          <div className="localDate">{this.state.event.local_date}</div>
-          <div className="eventName">{this.state.event.name}</div>
-          <div className="groupName">{this.state.event.group.name}</div>
-          <div className="eventAttending">
-            {this.state.event.yes_rsvp_count}
-          </div>
+          <div className="localTime">{event.local_time}</div>
+          <div className="localDate">{event.local_date}</div>
+          <div className="eventName">{event.name}</div>
+          <div className="groupName">{event.group.name}</div>
+          <div className="eventAttending">{event.yes_rsvp_count}</div>
           <div
             type="button"
             className="eventButton"
@@ -31,9 +29,7 @@ class Event extends Component {
         </div>
         {this.state.showDetails && (
           <div className="unfurlEventDetails">
-            <div className="eventDescription">
-              {this.state.event.description}
-            </div>
+            <div className="eventDescription">{event.description}</div>
           </div>
         )}
       </div>
