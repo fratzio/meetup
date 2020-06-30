@@ -69,7 +69,7 @@ describe('<Event /> component', () => {
           'Film industry talents wanted! Event speakers wanted! Guest producers wanted!',
         date_in_series_pattern: false,
         status: 'upcoming',
-        time: 1593572400000,
+        time: 15935720400000,
         local_date: '2020-06-30',
         local_time: '20:00',
         updated: 1593066093000,
