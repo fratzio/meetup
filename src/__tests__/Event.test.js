@@ -62,7 +62,7 @@ describe('<Event /> component', () => {
   test('Test mock event data as state', () => {
     EventWrapper.setState({
       event: {
-        created: 1593066093000,
+        created: 15930660903000,
         duration: 7200000,
         id: '271513594',
         name:

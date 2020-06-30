@@ -5,15 +5,23 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 
 class App extends Component {
-  state = {
-    events: [],
-  };
+  constructor() {
+    // Call the superclass constructor
+    // so React can initialize it
+    super();
+
+    // Initialize the state to an empty object so we can destructure it later
+    this.state = {
+      events: [],
+    };
+  }
 
   render() {
+    let { events } = this.state;
     return (
       <div className="App">
         <CitySearch />
-        <EventList events={this.state.events} />
+        <EventList events={events} />
         <NumberOfEvents />
       </div>
     );

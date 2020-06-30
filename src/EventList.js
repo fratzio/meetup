@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import Event from './Event';
 
 class EventList extends Component {
-  state = {
-    events: [],
-  };
-
   render() {
+    const { events } = this.props;
     return (
       <ul className="EventList">
-        {this.state.events.map((event) => (
+        {events.map((event) => (
           <li key={event.id}>
-            <Event event={event} />
+            <Event event={events} />
           </li>
         ))}
       </ul>
