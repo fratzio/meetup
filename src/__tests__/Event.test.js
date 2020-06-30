@@ -73,7 +73,7 @@ describe('<Event /> component', () => {
         local_date: '2020-06-30',
         local_time: '20:00',
         updated: 1593066093000,
-        utc_offset: -25200000,
+        utc_offset: -252000000,
         waitlist_count: 0,
         yes_rsvp_count: 3,
         venue: {

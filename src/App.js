@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   render() {
-    let { events } = this.state;
+    let { events } = this.state.events;
     return (
       <div className="App">
         <CitySearch />
