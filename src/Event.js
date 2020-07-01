@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 class Event extends Component {
-  constructor() {
+  constructor(props) {
     // Call the superclass constructor
     // so React can initialize it
-    super();
+    super(props);
     this.state = {
       showDetails: false,
     };
