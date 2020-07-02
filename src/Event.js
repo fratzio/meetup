@@ -4,6 +4,7 @@ class Event extends Component {
   constructor(props) {
     // Call the superclass constructor
     // so React can initialize it
+    // So we can pass props down from the parent component to the child component
     super(props);
     this.state = {
       showDetails: false,

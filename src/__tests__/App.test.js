@@ -4,6 +4,8 @@ import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberOfEvents';
+import { mount } from 'enzyme';
+import { mockEvents } from '../mock-events';
 
 describe('<App /> component', () => {
   let AppWrapper;
@@ -21,5 +23,37 @@ describe('<App /> component', () => {
 
   test('render NumberOfEvents', () => {
     expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
+  });
+});
+
+/* Integration testing */
+
+describe('<App /> integration', () => {
+  test('get list of events after user selects a city', async () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.instance().updateEvents = jest.fn();
+    AppWrapper.instance().forceUpdate();
+    const CitySearchWrapper = AppWrapper.find(CitySearch);
+    CitySearchWrapper.instance().handleItemClicked('value', 1.1, 1.2);
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith(1.1, 1.2);
+    AppWrapper.unmount();
+  });
+
+  // Using shallow instead of mount since we aren't testing child components with the parent
+  test('change state after get list of events', async () => {
+    const AppWrapper = shallow(<App />);
+    AppWrapper.instance().updateEvents(1.2, 1.2);
+    await AppWrapper.update();
+    expect(AppWrapper.state('events')).toEqual(mockEvents.events);
+    AppWrapper.unmount();
+  });
+
+  test('render correct list of events', () => {
+    const events = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+    const AppWrapper = mount(<App events={events} />);
+    // Checking that there are 4 nodes with className Event in Eventlist.js
+    expect(AppWrapper.find('.Event')).toHaveLength(4);
+    AppWrapper.unmount();
   });
 });
