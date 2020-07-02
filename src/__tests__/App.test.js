@@ -1,10 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberOfEvents';
-import { mount } from 'enzyme';
 import { mockEvents } from '../mock-events';
 
 describe('<App /> component', () => {
@@ -46,12 +45,17 @@ describe('<App /> integration', () => {
     AppWrapper.instance().updateEvents(1.2, 1.2);
     await AppWrapper.update();
     expect(AppWrapper.state('events')).toEqual(mockEvents.events);
-    AppWrapper.unmount();
   });
 
   test('render correct list of events', () => {
-    const events = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
-    const AppWrapper = mount(<App events={events} />);
+    const events = [
+      { id: 1, group: { name: 'test' } },
+      { id: 2, group: { name: 'test' } },
+      { id: 3, group: { name: 'test' } },
+      { id: 4, group: { name: 'test' } },
+    ];
+    const AppWrapper = mount(<App />);
+    AppWrapper.setState({ events });
     // Checking that there are 4 nodes with className Event in Eventlist.js
     expect(AppWrapper.find('.Event')).toHaveLength(4);
     AppWrapper.unmount();
