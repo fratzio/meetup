@@ -16,11 +16,11 @@ class App extends Component {
   };
 
   render() {
-    // let { events } = this.state;
+    let { events } = this.state;
     return (
       <div className="App">
         <CitySearch updateEvents={this.updateEvents} />
-        <EventList events={this.state.events} />
+        <EventList events={events} />
         <NumberOfEvents />
       </div>
     );
