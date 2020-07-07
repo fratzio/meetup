@@ -2,10 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import NumberOfEvents from '../NumberOfEvents';
 
+/* Unit testing */
+
 describe('<NumberOfEvents /> component', () => {
   let NumberOfEventsWrapper;
   beforeAll(() => {
-    NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+    NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() => {}} />);
   });
 
   test('render text input', () => {
@@ -22,3 +24,5 @@ describe('<NumberOfEvents /> component', () => {
     expect(NumberOfEventsWrapper.state('num')).toBe(108);
   });
 });
+
+/* Integration testing */

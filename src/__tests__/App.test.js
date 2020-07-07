@@ -78,13 +78,13 @@ describe('<App /> integration', () => {
     AppWrapper.instance().forceUpdate();
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
     NumberOfEventsWrapper.instance().handleInputChanged({
-      target: { value: 8 },
+      target: { value: 6 },
     });
     expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
     expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith(
       null,
       null,
-      8
+      6
     );
     AppWrapper.unmount();
   });
