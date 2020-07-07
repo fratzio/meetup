@@ -31,12 +31,12 @@ class Event extends Component {
           >
             Details
           </div>
+          {this.state.showDetails && (
+            <div className="unfurlEventDetails">
+              <div className="eventDescription">{event.description}</div>
+            </div>
+          )}
         </div>
-        {this.state.showDetails && (
-          <div className="unfurlEventDetails">
-            <div className="eventDescription">{event.description}</div>
-          </div>
-        )}
       </div>
     );
   }

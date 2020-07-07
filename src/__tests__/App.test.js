@@ -60,4 +60,32 @@ describe('<App /> integration', () => {
     expect(AppWrapper.find('.Event')).toHaveLength(4);
     AppWrapper.unmount();
   });
+
+  test('test that by default, the list of events show for the current location', () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.instance().updateEvents = jest.fn();
+    AppWrapper.instance().forceUpdate();
+    const CitySearchWrapper = AppWrapper.find(CitySearch);
+    CitySearchWrapper.instance().handleItemClicked('value');
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
+    // expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith();
+    AppWrapper.unmount();
+  });
+
+  test('get number of events after user selects a number', async () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.instance().updateEvents = jest.fn();
+    AppWrapper.instance().forceUpdate();
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    NumberOfEventsWrapper.instance().handleInputChanged({
+      target: { value: 8 },
+    });
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith(
+      null,
+      null,
+      8
+    );
+    AppWrapper.unmount();
+  });
 });

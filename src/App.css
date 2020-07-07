@@ -69,7 +69,7 @@ input[type='number'] {
   position: relative;
 }
 
-.details-btn {
+.eventButton {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -79,26 +79,26 @@ input[type='number'] {
   cursor: pointer;
 }
 
-.name {
+.eventName {
   font-size: 18px;
   font-weight: 600;
 }
 
-.group-name {
+.groupName {
   text-transform: uppercase;
   font-size: 14px;
 }
 
-.going,
+.eventAttending,
 .visibility {
   font-style: italic;
 }
 
-.description {
+.eventDescription {
   overflow-x: hidden;
 }
 
-.number-of-events {
+.NumberOfEvents {
   width: 80px;
   margin: 20px 0 50px;
   text-align: right;
