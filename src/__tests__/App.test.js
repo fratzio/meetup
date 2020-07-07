@@ -4,7 +4,7 @@ import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberOfEvents';
-import { mockEvents } from '../mock-events';
+import { mockEvents, mockEvents_filter } from '../mock-events';
 
 describe('<App /> component', () => {
   let AppWrapper;
@@ -87,5 +87,13 @@ describe('<App /> integration', () => {
       6
     );
     AppWrapper.unmount();
+  });
+
+  // Using shallow instead of mount since we aren't testing child components with the parent
+  test('change state after getting filtered list of events', async () => {
+    const AppWrapper = shallow(<App />);
+    AppWrapper.instance().updateEvents(48.14, 11.58, 6);
+    await AppWrapper.update();
+    expect(AppWrapper.state('events')).toEqual(mockEvents_filter.events);
   });
 });
