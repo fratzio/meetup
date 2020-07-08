@@ -71,17 +71,6 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  // test('By default the search input has the user\'s current location', async () => {
-  //   const AppWrapper = mount(<App />);
-  //   AppWrapper.instance().updateEvents = jest.fn();
-  //   AppWrapper.instance().forceUpdate();
-  //   const CitySearchWrapper = AppWrapper.find(CitySearch);
-  //   CitySearchWrapper.instance().handleItemClicked('value');
-  //   expect(CitySearchWrapper.find('.city').prop('value')).toBe(query);
-  //   expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
-  //   AppWrapper.unmount();
-  // });
-
   test('get number of events after user selects a number', async () => {
     const AppWrapper = mount(<App />);
     AppWrapper.instance().updateEvents = jest.fn();
