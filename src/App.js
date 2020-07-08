@@ -9,7 +9,7 @@ class App extends Component {
   // Initialize the state to an empty object so we can destructure it later
   state = {
     events: [],
-    page: 2,
+    page: null,
     lat: null,
     lon: null,
   };
