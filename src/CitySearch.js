@@ -10,7 +10,7 @@ class CitySearch extends Component {
     super(props);
 
     this.state = {
-      query: 'Munich',
+      query: '',
       suggestions: [
         //   {
         //     city: 'Munich',
