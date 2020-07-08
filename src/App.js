@@ -9,7 +9,6 @@ class App extends Component {
   // Initialize the state to an empty object so we can destructure it later
   state = {
     events: [],
-    page: 5,
     lat: null,
     lon: null,
   };
@@ -21,16 +20,16 @@ class App extends Component {
 
   updateEvents = (lat, lon, page) => {
     if (lat && lon) {
-      getEvents(lat, lon, this.state.page).then((events) =>
+      getEvents(lat, lon).then((events) =>
         this.setState({ lat, lon, events })
       );
     } else if (lat && lon && page) {
       getEvents(lat, lon, page).then((events) =>
-        this.setState({ events, lat, lon, page })
+        this.setState({ lat, lon, events })
       );
     } else if (page) {
       getEvents(this.state.lat, this.state.lon, page).then((events) =>
-        this.setState({ events, page })
+        this.setState({ events })
       );
     } else {
       getEvents(
