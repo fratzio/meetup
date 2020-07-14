@@ -7,6 +7,15 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(./img/river_photo.jpeg);
+
+  width: 100%;
+  background-repeat: repeat;
+
+  font-family: 'Righteous', cursive;
+}
+
 ul {
   padding: 0;
   list-style: none;
@@ -30,11 +39,24 @@ input[type='number'] {
 
 .city {
   width: 250px;
+  text-align: center;
 }
 
 .CitySearch {
   display: flex;
   flex-direction: column;
+}
+
+.CitySearch--title {
+  font-size: 6rem;
+  color: red;
+  text-shadow: white 2px 2px;
+  margin-top: 10px;
+}
+
+.CitySearch--subTitle {
+  color: white;
+  text-shadow: red 2px 2px;
 }
 
 .suggestions {
@@ -63,10 +85,13 @@ input[type='number'] {
 .Event {
   padding: 10px 10px 20px;
   margin-bottom: 10px;
+  margin-left: 20%;
+  margin-right: 20%;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+  background-color: white;
 }
 
 .eventButton {
@@ -77,6 +102,10 @@ input[type='number'] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+  border: 2px solid red;
+  color: white;
+  background-color: red;
+  text-shadow: 1px 1px black;
 }
 
 .eventName {
@@ -99,7 +128,48 @@ input[type='number'] {
 }
 
 .NumberOfEvents {
-  width: 80px;
+  width: 250px;
   margin: 20px 0 50px;
-  text-align: right;
+  display: inline-block;
+}
+
+.NumberInput {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.NumberOfEvents--title {
+  color: white;
+  text-shadow: red 2px 2px;
+}
+
+/* Media query for mobile devices */
+
+@media all and (max-width: 420px) {
+  .CitySearch--title {
+    font-size: 4rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  .CitySearch--subTitle {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .NumberOfEvents--title {
+    margin-bottom: 5px;
+  }
+  .Event {
+    padding: 10px 10px 20px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 1rem;
+  }
+  .eventButton {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    padding: 5px 8px;
+    font-size: 10px;
+  }
 }

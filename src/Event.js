@@ -19,11 +19,13 @@ class Event extends Component {
     return (
       <div className="Event">
         <div className="eventSummary">
-          <div className="localTime">{event.local_time}</div>
-          <div className="localDate">{event.local_date}</div>
-          <div className="eventName">{event.name}</div>
-          <div className="groupName">{event.group.name}</div>
-          <div className="eventAttending">{event.yes_rsvp_count}</div>
+          <div className="eventName">Title: {event.name}</div>
+          <div className="groupName">Group Name: {event.group.name}</div>
+          <div className="localTime">Time: {event.local_time}</div>
+          <div className="localDate">Date: {event.local_date}</div>
+          <div className="eventAttending">
+            Confirmed Attending: {event.yes_rsvp_count}
+          </div>
           <div
             type="button"
             className="eventButton"

@@ -21,18 +21,15 @@ class NumberOfEvents extends Component {
   render() {
     return (
       <div className="NumberOfEvents">
-        <p>
-          Show
-          <span>
-            <input
-              type="text"
-              value={this.state.num}
-              className="NumberInput"
-              onChange={this.handleInputChanged}
-            ></input>
-          </span>
-          Events
-        </p>
+        <h2 className="NumberOfEvents--title">No. of search results</h2>
+        <span>
+          <input
+            type="text"
+            value={this.state.num}
+            className="NumberInput"
+            onChange={this.handleInputChanged}
+          ></input>
+        </span>
       </div>
     );
   }
