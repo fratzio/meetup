@@ -41,5 +41,19 @@ class ErrorAlert extends Alert {
   };
 }
 
+class WarningAlert extends Alert {
+  constructor(props) {
+    super(props);
+    this.color = 'orange';
+  }
+  getStyle = () => {
+    return {
+      color: this.color,
+      fontsize: '20px',
+    };
+  };
+}
+
 export { InfoAlert };
 export { ErrorAlert };
+export { WarningAlert };

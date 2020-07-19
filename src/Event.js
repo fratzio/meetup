@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { WarningAlert } from './Alert';
 
 class Event extends Component {
   constructor(props) {
@@ -12,6 +13,15 @@ class Event extends Component {
   }
   eventShowDetails = () => {
     this.setState({ showDetails: !this.state.showDetails });
+    if (this.props.event.description.length === 0 && !this.state.showDetails) {
+      this.setState({
+        infoText: 'There are no details provided for this event',
+      });
+    } else {
+      this.setState({
+        infoText: '',
+      });
+    }
   };
 
   render() {
@@ -26,6 +36,7 @@ class Event extends Component {
           <div className="eventAttending">
             Confirmed Attending: {event.yes_rsvp_count}
           </div>
+          <WarningAlert text={this.state.infoText} />
           <div
             type="button"
             className="eventButton"
