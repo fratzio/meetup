@@ -13,7 +13,7 @@ class Event extends Component {
   }
   eventShowDetails = () => {
     this.setState({ showDetails: !this.state.showDetails });
-    if (this.props.event.description.length === 0 && !this.state.showDetails) {
+    if (this.props.event.description.length === 0) {
       this.setState({
         infoText: 'There are no details provided for this event',
       });
