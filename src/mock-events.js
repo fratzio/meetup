@@ -43,7 +43,6 @@ const mockEvents = {
       },
       link:
         'https://www.meetup.com/No-More-Mr-Nice-Guy-Muenchen/events/266491810/',
-      description: '',
       visibility: 'public',
       member_pay_fee: false,
     },
