@@ -105,6 +105,8 @@ describe('<Event /> component', () => {
   });
 
   test('Test mock event data as state', () => {
-    expect(EventWrapper.find('.eventAttending').text()).toBe('3');
+    expect(EventWrapper.find('.eventAttending').text()).toBe(
+      'Confirmed Attending: 3'
+    );
   });
 });
