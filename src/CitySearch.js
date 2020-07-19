@@ -43,7 +43,6 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
-        <InfoAlert text={this.state.infoText} />
         <h1 className="CitySearch--title">MEET UP</h1>
         <h2 className="CitySearch--subTitle">Search by City</h2>
         <input
@@ -52,6 +51,7 @@ class CitySearch extends Component {
           value={this.state.query}
           onChange={this.handleInputChanged}
         />
+        <InfoAlert text={this.state.infoText} />
         <ul className="suggestions">
           {this.state.suggestions.map((item) => (
             <li
