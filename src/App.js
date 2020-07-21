@@ -4,6 +4,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents } from './api';
+import { ErrorAlert } from './Alert';
 
 class App extends Component {
   // Initialize the state to an empty object so we can destructure it later
@@ -17,6 +18,16 @@ class App extends Component {
   componentDidMount() {
     // Make a call to getEvents by default ommitting the lat and lon args
     this.updateEvents();
+    if (!navigator.onLine) {
+      this.setState({
+        infoText:
+          'No connection detected. Loading results from the last search',
+      });
+    } else {
+      this.setState({
+        infoText: '',
+      });
+    }
   }
 
   updateEvents = (lat, lon, page) => {
@@ -43,6 +54,7 @@ class App extends Component {
       <div className="App">
         <CitySearch updateEvents={this.updateEvents} />
         <NumberOfEvents updateEvents={this.updateEvents} />
+        <ErrorAlert text={this.state.infoText} />
         <EventList events={events} />
       </div>
     );
