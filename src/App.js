@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   updateEvents = (lat, lon, page) => {
-    if (navigator.onLine === false) {
+    if (!navigator.onLine) {
       this.setState({
         infoText:
           'No connection detected. Loading results from the cached last search if available',
