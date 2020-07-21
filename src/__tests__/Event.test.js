@@ -58,7 +58,7 @@ describe('<Event /> component', () => {
   });
 
   test('test event summary children exist', () => {
-    expect(EventWrapper.find('.eventSummary').children()).toHaveLength(6);
+    expect(EventWrapper.find('.eventSummary').children()).toHaveLength(7);
   });
 
   test('test render event time', () => {

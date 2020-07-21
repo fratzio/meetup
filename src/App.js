@@ -20,8 +20,7 @@ class App extends Component {
     this.updateEvents();
 
     function listener() {
-      var state = navigator.onLine ? 'online' : 'offline';
-      if (state === 'offline') {
+      if (!navigator.onLine) {
         this.setState({
           infoText:
             'No connection detected. Loading results from the cached last search if available',
@@ -33,7 +32,6 @@ class App extends Component {
       }
     }
 
-    window.addEventListener('online', listener);
     window.addEventListener('offline', listener);
   }
 
