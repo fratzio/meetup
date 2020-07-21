@@ -13,16 +13,17 @@ class App extends Component {
     page: null,
     lat: null,
     lon: null,
+    infoText: '',
   };
 
   componentDidMount() {
     // Make a call to getEvents by default ommitting the lat and lon args
     this.updateEvents();
-    window.addEventListener('offline', this.offlinelistener());
+    window.addEventListener('online', this.offlinelistener());
   }
 
   offlinelistener = () => {
-    if (!navigator.onLine) {
+    if (navigator.onLine === false) {
       this.setState({
         infoText:
           'No connection detected. Loading results from the cached last search if available',

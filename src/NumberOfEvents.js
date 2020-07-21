@@ -10,6 +10,7 @@ class NumberOfEvents extends Component {
 
     this.state = {
       num: 32,
+      infoText: '',
     };
   }
 

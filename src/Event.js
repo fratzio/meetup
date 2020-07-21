@@ -9,6 +9,7 @@ class Event extends Component {
     super(props);
     this.state = {
       showDetails: false,
+      infoText: '',
     };
   }
   eventShowDetails = () => {
