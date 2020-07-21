@@ -19,10 +19,9 @@ class App extends Component {
   componentDidMount() {
     // Make a call to getEvents by default ommitting the lat and lon args
     this.updateEvents();
-    window.addEventListener('online', this.offlinelistener());
   }
 
-  offlinelistener = () => {
+  updateEvents = (lat, lon, page) => {
     if (navigator.onLine === false) {
       this.setState({
         infoText:
@@ -33,9 +32,6 @@ class App extends Component {
         infoText: '',
       });
     }
-  };
-
-  updateEvents = (lat, lon, page) => {
     if (lat && lon) {
       getEvents(lat, lon, this.state.page).then((events) =>
         this.setState({ events, lat, lon })
