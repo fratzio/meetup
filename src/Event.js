@@ -38,6 +38,14 @@ class Event extends Component {
     }
   };
 
+  stripTags = (str) => {
+    if (str) {
+      var curStr = str.toString();
+      var newStr = curStr.replace(/(<([^>]+)>)/gi, '');
+      return newStr;
+    }
+  };
+
   render() {
     const { event } = this.props;
     return (
@@ -90,7 +98,9 @@ class Event extends Component {
                   People Attending: {event.yes_rsvp_count}
                 </div>
               )}
-              <div className="eventDescription">{event.description}</div>
+              <div className="eventDescription">
+                {this.stripTags(event.description)}
+              </div>
             </div>
           )}
         </div>
