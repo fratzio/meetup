@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { WarningAlert } from './Alert';
+import { ResponsiveContainer, PieChart, Pie, Legend, Tooltip } from 'recharts';
 
 class Event extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Event extends Component {
     if (!this.props.event.description) {
       if (!this.state.showDetails) {
         this.setState({
-          infoText: 'There are no details provided for this event',
+          infoText: 'There are no extra event details provided for this event',
         });
       } else {
         this.setState({
@@ -27,7 +28,7 @@ class Event extends Component {
     } else if (this.props.event.description.length === 0) {
       if (!this.state.showDetails) {
         this.setState({
-          infoText: 'There are no details provided for this event',
+          infoText: 'There are no extra event details provided for this event',
         });
       } else {
         this.setState({
@@ -46,9 +47,7 @@ class Event extends Component {
           <div className="groupName">Group Name: {event.group.name}</div>
           <div className="localTime">Time: {event.local_time}</div>
           <div className="localDate">Date: {event.local_date}</div>
-          <div className="eventAttending">
-            Confirmed Attending: {event.yes_rsvp_count}
-          </div>
+
           <WarningAlert text={this.state.infoText} />
           <div
             type="button"
@@ -59,6 +58,38 @@ class Event extends Component {
           </div>
           {this.state.showDetails && (
             <div className="unfurlEventDetails">
+              {event.rsvp_limit ? (
+                <ResponsiveContainer height={300}>
+                  <PieChart>
+                    <Legend verticalAlign="bottom" height={36} />
+                    <Pie
+                      className="pieStyles"
+                      dataKey="value"
+                      isAnimationActive={false}
+                      data={[
+                        {
+                          name: 'People Attending',
+                          value: event.yes_rsvp_count,
+                          fill: 'red',
+                        },
+                        {
+                          name: 'Attendance Limit',
+                          value: event.rsvp_limit,
+                          fill: '#000',
+                        },
+                      ]}
+                      cy={100}
+                      outerRadius={60}
+                      label
+                    />
+                    <Tooltip />
+                  </PieChart>
+                </ResponsiveContainer>
+              ) : (
+                <div className="eventAttending">
+                  People Attending: {event.yes_rsvp_count}
+                </div>
+              )}
               <div className="eventDescription">{event.description}</div>
             </div>
           )}

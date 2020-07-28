@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 0 auto;
   padding: 2% 5%;
 }
 
@@ -11,6 +12,9 @@ body {
   background-image: url(./img/river_photo.jpeg);
   width: 100%;
   background-repeat: repeat;
+  background-size: auto;
+  background-attachment: fixed;
+  background-position: center;
   font-family: 'Righteous', cursive;
 }
 
@@ -33,6 +37,10 @@ input[type='number'] {
   line-height: 20px;
   align-self: center;
   height: 38px;
+}
+
+.scatterChartStyles {
+  text-decoration-color: white;
 }
 
 .city {

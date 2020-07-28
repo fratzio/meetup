@@ -58,7 +58,7 @@ describe('<Event /> component', () => {
   });
 
   test('test event summary children exist', () => {
-    expect(EventWrapper.find('.eventSummary').children()).toHaveLength(7);
+    expect(EventWrapper.find('.eventSummary').children()).toHaveLength(6);
   });
 
   test('test render event time', () => {
@@ -72,9 +72,6 @@ describe('<Event /> component', () => {
   });
   test('test render group name', () => {
     expect(EventWrapper.find('.groupName')).toHaveLength(1);
-  });
-  test('test render people attending', () => {
-    expect(EventWrapper.find('.eventAttending')).toHaveLength(1);
   });
 
   test('test event details collapsed by default', () => {
@@ -91,7 +88,7 @@ describe('<Event /> component', () => {
     EventWrapper.setState({
       showDetails: true,
     });
-    expect(EventWrapper.find('.unfurlEventDetails').children()).toHaveLength(1);
+    expect(EventWrapper.find('.unfurlEventDetails').children()).toHaveLength(2);
   });
 
   test('test that full event details collapses when button is clicked once more', () => {
@@ -105,8 +102,8 @@ describe('<Event /> component', () => {
   });
 
   test('Test mock event data as state', () => {
-    expect(EventWrapper.find('.eventAttending').text()).toBe(
-      'Confirmed Attending: 3'
+    expect(EventWrapper.find('.eventName').text()).toBe(
+      'Title: Film industry talents wanted! Event speakers wanted! Guest producers wanted!'
     );
   });
 });

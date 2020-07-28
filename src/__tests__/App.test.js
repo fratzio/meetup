@@ -65,8 +65,6 @@ describe('<App /> integration', () => {
     const AppWrapper = mount(<App />);
     AppWrapper.instance().updateEvents = jest.fn();
     AppWrapper.instance().forceUpdate();
-    const CitySearchWrapper = AppWrapper.find(CitySearch);
-    CitySearchWrapper.instance().handleItemClicked('value');
     expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
     AppWrapper.unmount();
   });
