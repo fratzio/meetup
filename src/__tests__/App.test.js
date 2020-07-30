@@ -62,11 +62,10 @@ describe('<App /> integration', () => {
   });
 
   test('test that by default, the list of events show for the current location', () => {
-    const AppWrapper = mount(<App />);
-    AppWrapper.instance().updateEvents = jest.fn();
-    AppWrapper.instance().forceUpdate();
-    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledTimes(1);
-    AppWrapper.unmount();
+    const AppWrapper = shallow(<App />).instance();
+    const spy = jest.spyOn(AppWrapper, 'updateEvents');
+    AppWrapper.componentDidMount();
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   test('get number of events after user selects a number', async () => {

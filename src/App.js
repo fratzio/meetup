@@ -26,11 +26,6 @@ class App extends Component {
     infoText: '',
   };
 
-  componentDidMount() {
-    // Make a call to getEvents by default ommitting the lat and lon args
-    this.updateEvents();
-  }
-
   updateEvents = (lat, lon, page) => {
     if (!navigator.onLine) {
       this.setState({
@@ -58,6 +53,11 @@ class App extends Component {
       ).then((events) => this.setState({ events }));
     }
   };
+
+  componentDidMount() {
+    // Make a call to getEvents by default ommitting the lat and lon args
+    this.updateEvents();
+  }
 
   countEventsOnADate = (date) => {
     let count = 0;

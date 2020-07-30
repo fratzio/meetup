@@ -5,8 +5,8 @@ describe('show/hide an event details', () => {
   let page;
   beforeAll(async () => {
     jest.setTimeout(30000);
-    browser = await puppeteer.launch();
-    // browser = await puppeteer.launch({ headless: false, slowMo: 250 });
+    // browser = await puppeteer.launch();
+    browser = await puppeteer.launch({ headless: false, slowMo: 250 });
     page = await browser.newPage();
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('.Event');
@@ -22,15 +22,14 @@ describe('show/hide an event details', () => {
   });
 
   test('User can expand an event to see its details', async () => {
-    await page.click('.Event .eventButton');
+    await page.click('.Event .eventSummary .eventButton');
 
     const extra = await page.$('.Event .eventSummary .unfurlEventDetails');
     expect(extra).toBeDefined();
   });
 
   test('User can collapse an event to hide its details', async () => {
-    await page.click('.Event .eventButton');
-
+    await page.click('.eventButton');
     const extra = await page.$('.Event .eventSummary .unfurlEventDetails');
     expect(extra).toBeNull();
   });
